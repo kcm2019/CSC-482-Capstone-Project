@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
+    <style>
+body {
+                background-color: white;
+                color: black;
+                font-family: Arial, sans-serif;
+            }
+
+            .logo {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 200px;
+                margin-top: 50px;
+            }
+
+            h1 {
+                text-align: center;
+                margin-top: 20px;
+            }
+
+            .form-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-top: 100px;
+            }
+
+            input[type="text"],
+            input[type="password"] {
+                padding: 10px;
+                font-size: 16px;
+                margin-bottom: 20px;
+                width: 300px;
+            }
+
+            input[type="submit"] {
+                padding: 10px 20px;
+                font-size: 16px;
+                background-color: black;
+                color: white;
+                border: none;
+                cursor: pointer;
+                margin-bottom: 20px;
+            }
+
+            input[type="submit"]:hover {
+                background-color: white;
+                color: black;
+            }
+
+            .back-button {
+                padding: 10px 20px;
+                font-size: 16px;
+                background-color: white;
+                color: black;
+                border: 1px solid black;
+                cursor: pointer;
+            }
+
+            .back-button:hover {
+                background-color: black;
+                color: white;
+            }
+
+            .footer {
+              position: absolute;
+              bottom: 0;
+              width: 100%;
+              text-align: center;
+              padding: 10px;
+              background-color: white;
+              color: black;
+              font-size: 14px;
+            }
+    </style>
+  </head>
+
+  <body>
+    <img src="App Icon.png" alt="Logo" class="logo">
+    <h1>FlowChat</h1>
+    <div class="form-container">
+      <form action="Home.html">
+        <input type="text" placeholder="Username">
+        <input type="password" placeholder="Password">
+        <input type="submit" value="Login">
+      </form>
+      <p>Don't have an account? </p>
+      <a href="Signup.html" class="back-button" style="align-items: center">Sign Up</a>
+    </div>
+    <div class="footer">
+      FlowChat was developed by Kurt Muller, Rodrigo Henriquez, and Berat Kales for CSC 482 Capstone Project
+      <br>
+      <a href="https://github.com/kcm2019/CSC-482-Capstone-Project">
+        <i class="fab fa-github">Visit the Github Page!</i>
+      </a>
+    </div>
+  </body>
+
+</html>

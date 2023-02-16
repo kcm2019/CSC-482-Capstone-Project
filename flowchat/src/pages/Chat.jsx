@@ -9,6 +9,7 @@ let client = AgoraRTM.createInstance(APP_ID);
 let uid = uuidv4();
 
 import React, { useEffect, useRef, useState } from 'react';
+import Sidebar from '../components/Sidebar';
 
 export default function Chat() {
   const messagesRef = useRef();
@@ -63,7 +64,8 @@ export default function Chat() {
   };
 
   return (
-    <main>
+    <main className="home">
+      <Sidebar/>
       <div className="panel">
         <div className="messages" ref={messagesRef}>
           <div className="inner">
@@ -96,4 +98,3 @@ export default function Chat() {
     </main>
   );
 }
-

@@ -7,7 +7,7 @@ import { faComments, faPhone, faVideo, faPen, faContactBook, faSignOut } from '@
 const Sidebar = () => {
   return (
     <div className="side-bar">
-        <a href="chat.html">
+        <a href="/chat">
             <FontAwesomeIcon className="link-icon" icon={faComments} />
             Chat
         </a>

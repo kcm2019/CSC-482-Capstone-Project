@@ -1,19 +1,11 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "../index.css";
 import './Styling/Login.css';
 import { UserAuth } from "../context/AuthContext.jsx";
 import Sidebar from "../components/Sidebar";
 import logo from '../assets/logo.png';
 
-const Register = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-
-  const { createUser } = UserAuth();
-
-  const navigate = useNavigate();
+const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,38 +19,34 @@ const Register = () => {
     }
   };
 
+  const navigate = useNavigate();
+
   return (
     <div className="max-w-[700px] mx-auto my-16 p-4 flex flex-col">
-        <img src={ logo } alt="Logo" class="logo"></img>
-        <h1>FlowChat</h1>
-      <div>
-        <h1 className="text-2xl font-bold py-2">Login</h1>
-        <p className="py-2">
-          Have an account?{" "}
-          <Link to="/" className="underline">
-            Sign In
-          </Link>
-        </p>
+      <img src={ logo } alt="Logo" class="logo"></img>
+      <h1>FlowChat</h1>
+      <h2>Login</h2> <br/>
+      <div className="flex flex-col justify-center items-center self-center content-start">
+        <form onSubmit={handleSubmit}>
+          <div className="flex flex-col justify-center items-center self-center content-start">
+            <input
+              onChange={(e) => setEmail(e.target.value)}
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              type="email"
+              placeholder="Email"
+            />
+            <input
+              onChange={(e) => setPassword(e.target.value)}
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-10 w-96"
+              type="password"
+              placeholder="Password"
+            />
+            <input type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-10 h-10"/>
+          </div>
+        </form>
       </div>
-      <form onSubmit={handleSubmit}>
-        <div className="flex flex-col justify-center items-center self-center content-start">
-          <input
-            onChange={(e) => setEmail(e.target.value)}
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            type="email"
-            placeholder="Email"
-          />
-          <input
-            onChange={(e) => setPassword(e.target.value)}
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-10 w-96"
-            type="password"
-            placeholder="Password"
-          />
-          <input type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-10 h-10"/>
-        </div>
-      </form>
     </div>
   );
 };
 
-export default Register;
+export default Login;

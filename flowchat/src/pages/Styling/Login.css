@@ -1,0 +1,81 @@
+body {
+    background-color: white;
+    color: black;
+    font-family: Arial, sans-serif;
+}
+
+.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    margin-top: 50px;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 40px;
+    font-weight: bolder;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 25px;
+}
+
+input[type="text"],
+input[type="password"] {
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    width: 300px;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+input[type="submit"]:hover {
+    background-color: white;
+    color: black;
+}
+
+.back-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.back-button:hover {
+    background-color: black;
+    color: white;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background-color: white;
+    color: black;
+    font-size: 14px;
+}
+

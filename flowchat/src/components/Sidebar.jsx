@@ -15,11 +15,11 @@ const Sidebar = () => {
           <FontAwesomeIcon className="link-icon" icon={faPhone} />
           Voice
         </a>
-        <a href="Videocall.html">
+        <a href="/video">
           <FontAwesomeIcon className="link-icon" icon={faVideo} />
           Video
         </a>
-        <a href="Whiteboard.html">
+        <a href="whiteboard">
           <FontAwesomeIcon className="link-icon" icon={faPen} />
           Whiteboard
         </a>

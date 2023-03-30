@@ -13,11 +13,13 @@
     "@fortawesome/free-regular-svg-icons": "^6.2.1",
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "agora-rtc-sdk-ng": "^4.16.1",
     "agora-rtm-sdk": "^1.6.0-205",
-    "firebase": "^9.17.1",
+    "firebase": "^9.18.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.0",
+    "white-react-sdk": "^2.16.41"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",

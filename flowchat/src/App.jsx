@@ -1,7 +1,7 @@
 import Chat from "./pages/Chat";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route, BrowserRouter } from "react-router-dom";
 import Register from "./pages/Register";
 import { AuthContextProvider } from "./context/AuthContext";
 import Video from "./pages/Video";
@@ -12,12 +12,12 @@ function App() {
     <AuthContextProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/chat" element={<Chat />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/video" element={<Video/>}/>
-          <Route path="/whiteboard" element={<Whiteboard />} />
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/chat" element={<Chat />} />
+          <Route exact path="/register" element={<Register />} />
+          <Route exact path="/login" element={<Login />} />
+          <Route exact path="/video" element={<Video/>}/>
+          <Route exact path="/whiteboard" element={<Whiteboard />} />
         </Routes>
       </BrowserRouter>
     </AuthContextProvider>

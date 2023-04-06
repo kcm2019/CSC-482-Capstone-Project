@@ -40,21 +40,13 @@
   color: green;
 }
 
-.user-them {
-  color: red;
-}
-
-form {
+.chat-form {
   position: relative;
   display: flex;
   flex-direction: column;
-  align-self: center;
-  width: 300px;
-  height: 300px;
-  background-color: red;
 }
 
-input[type="text"] {
+.chat-input{
   width: 100%;
   border: none;
   height: 20px;
@@ -64,11 +56,7 @@ input[type="text"] {
   outline: none;
 }
 
-input[type="submit"]{
-  background-color: blue;
-}
-
-button {
+.chat-button {
   border: none;
   outline: none;
   background: none;

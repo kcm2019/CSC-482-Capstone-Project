@@ -32,29 +32,6 @@ h2 {
     margin-top: 25px;
 }
 
-input[type="text"],
-input[type="password"] {
-    padding: 10px;
-    font-size: 16px;
-    margin-bottom: 20px;
-    width: 300px;
-}
-
-input[type="submit"] {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: black;
-    color: white;
-    border: none;
-    cursor: pointer;
-    margin-bottom: 20px;
-}
-
-input[type="submit"]:hover {
-    background-color: white;
-    color: black;
-}
-
 .back-button {
     padding: 10px 20px;
     font-size: 16px;
@@ -64,17 +41,4 @@ input[type="submit"]:hover {
     cursor: pointer;
 }
 
-.back-button:hover {
-    background-color: black;
-    color: white;
-}
-
-.footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    background-color: white;
-    color: black;
-    font-size: 14px;
-}
 

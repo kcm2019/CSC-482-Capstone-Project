@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { WhiteWebSdk, RoomWhiteboard } from "white-react-sdk";
 import Sidebar from "../components/Sidebar";
-import './Styling/Whiteboard.css'
+import "./Styling/Whiteboard.css";
+import Room from "../components/Room";
 
 const Whiteboard = () => {
   const sdkToken =
@@ -12,7 +13,7 @@ const Whiteboard = () => {
   const [roomInput, setRoomInput] = useState(null);
   const [userID, setUserID] = useState(null);
   const [token, setToken] = useState(null);
-  
+
   const create = async (e) => {
     e.preventDefault();
     let roomUUID = "";
@@ -85,60 +86,86 @@ const Whiteboard = () => {
       uuid: roomInput,
       uid: userID,
       roomToken: token,
-    })
+    });
 
     setRoom(room);
     setHasRoom(true);
     setRoomID(roomId);
     setToken(rt);
-  }
+  };
 
   return (
-    <div className="App">
-      <Sidebar/>
-      <div>
-
-      {room ? (
-        <div>
-          <h3>Room ID: {roomID}</h3>
-          <h3>Room Token: {token}</h3>
-        <RoomWhiteboard
-          room={room}
-          style={{
-            width: "100%",
-            height: "100vh",
-          }}
-        />
-        </div>
-
-      ) : (
-        <div class="container">
-          <p>No Room</p>
-          <button class="container-button" onClick={(e) => create(e)}>Create one here</button>
-          <form onSubmit={(e) => join(e)}>
-            Join a room
-            <input
-              type="text"
-              placeholder="Room ID"
-              value={roomInput}
-              onChange={(e) => setRoomInput(e.target.value)}
+    <main className="home">
+      <Sidebar />
+        {room ? (
+          <div className="overflow-hidden">
+            <div>
+              <h3>Room ID: {roomID}</h3>
+              <h3>Room Token: {token}</h3>
+            </div>
+            <RoomWhiteboard
+              room={room}
+              style={{
+                width: "100%",
+                height: "500px",
+                border: "solid 1px gray"
+              }}
             />
-            <input 
-              type="text"
-              placeholder="Username"
-              value={userID}
-              onChange={(e) => setUserID(e.target.value)}/>
-            <input 
-              type="text"
-              placeholder="Token"
-              value={token}
-              onChange={(e) => setToken(e.target.value)}/>
-            <input type="submit" value="Join"/>
-          </form>
-        </div>
-      )}
-    </div>
-    </div>
+          </div>
+        ) : (
+          <div className="flex bg-green-300 h-full w-full place-content-around">
+            <div className="bg-gray-200 w-1/2 flex flex-col items-center border-r-2 border-black">
+              <button
+                className="mt-10 bg-blue-500 w-10 self-center text-white font-semibold focus:pointer-events-auto rounded-lg hover:cursor-pointer"
+                onClick={(e) => create(e)}
+              >
+                +{" "}
+              </button>
+              <form
+                onSubmit={(e) => join(e)}
+                className="flex flex-col text-center justify-center align-center"
+              >
+                <p className="mt-10">Join a whiteboard session:</p>
+                <input
+                  type="text"
+                  placeholder="Room ID"
+                  className="w-4/4 mt-10 self-center focus:outline-none p-1 rounded"
+                  value={roomInput}
+                  onChange={(e) => setRoomInput(e.target.value)}
+                />
+                <input
+                  type="text"
+                  placeholder="Username"
+                  value={userID}
+                  className="w-4/4 mt-10 self-center focus:outline-none p-1 rounded"
+                  onChange={(e) => setUserID(e.target.value)}
+                />
+                <input
+                  type="text"
+                  placeholder="Token"
+                  value={token}
+                  className="w-4/4 mt-10 self-center focus:outline-none p-1 rounded"
+                  onChange={(e) => setToken(e.target.value)}
+                />
+                <input
+                  type="submit"
+                  value="Join"
+                  className="mt-10 bg-blue-500 w-24 self-center text-white font-semibold focus:pointer-events-auto rounded-lg hover:cursor-pointer"
+                />
+              </form>
+            </div>
+            <div className="bg-gray-200 w-1/2 pl-10 pr-10 overflow-y-scroll">
+              <p className="mt-10">List of chatrooms:</p>
+              <Room room="abc" token="123"/>
+              <Room room="abc" />
+              <Room room="abc" />
+              <Room room="abc" />
+              <Room room="abc" />
+              <Room room="abc" />
+            </div>
+          </div>
+        )}
+    </main>
   );
 };
 

@@ -22,13 +22,13 @@ const Login = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="max-w-[700px] mx-auto my-16 p-4 flex flex-col">
+    <div className="login-container">
       <img src={ logo } alt="Logo" class="logo"></img>
       <h1>FlowChat</h1>
       <h2>Login</h2> <br/>
       <div className="flex flex-col justify-center items-center self-center content-start">
         <form onSubmit={handleSubmit}>
-          <div className="flex flex-col justify-center items-center self-center content-start">
+          <div className="flex flex-col justify-center items-center self-center content-start w-96">
             <input
               onChange={(e) => setEmail(e.target.value)}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -37,11 +37,11 @@ const Login = () => {
             />
             <input
               onChange={(e) => setPassword(e.target.value)}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-10 w-96"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-10"
               type="password"
               placeholder="Password"
             />
-            <input type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-10 h-10"/>
+            <input type="submit" className="bg-black hover:bg-white text-white hover:text-black cursor-pointer font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-10 h-10"/>
           </div>
         </form>
       </div>

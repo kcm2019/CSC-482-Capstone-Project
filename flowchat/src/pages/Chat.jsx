@@ -1,16 +1,15 @@
 import AgoraRTM from "agora-rtm-sdk";
 import { v4 as uuidv4 } from "uuid";
 import "./Styling/Chat.css";
+import React, { useEffect, useRef, useState } from "react";
+import Sidebar from "../components/Sidebar";
+import Room from "../components/Room";
 
 const APP_ID = "bc38613fec1e4347a1c3e44c0473d06f";
-const CHANNEL = "abc";
 
 let client = AgoraRTM.createInstance(APP_ID);
 
 var time = new Date();
-
-import React, { useEffect, useRef, useState } from "react";
-import Sidebar from "../components/Sidebar";
 
 export default function Chat() {
   const messagesRef = useRef();
@@ -71,27 +70,44 @@ export default function Chat() {
     <main className="home">
       <Sidebar />
       {!loginSubmitted ? (
-        <div>
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              placeholder="Enter your name"
-              value={uid}
-              onChange={(e) => setUid(e.target.value)}
-            />
-            <input
-              type="text"
-              placeholder="Join a channel"
-              value={channelInput}
-              onChange={(e) => setChannelInput(e.target.value)}
-            />
-            <input type="submit" value="Submit" />
-          </form>
-          <form>
-            <input type="submit" value="subbbbb"></input>
-          </form>
+        <div className="flex bg-green-300 h-full w-full place-content-around">
+          <div className="bg-gray-200 w-1/2 border-r-2 border-black">
+            <form
+              onSubmit={handleSubmit}
+              className="flex flex-col text-center justify-center align-center"
+            >
+              <p className="mt-10">Create or join a chatroom here:</p>
+              <input
+                type="text"
+                placeholder="Enter your name"
+                className="w-2/4 mt-10 self-center focus:outline-none p-1 rounded"
+                value={uid}
+                onChange={(e) => setUid(e.target.value)}
+              />
+              <input
+                type="text"
+                placeholder="Join a channel"
+                value={channelInput}
+                className="w-2/4 mt-10 self-center focus:outline-none p-1 rounded"
+                onChange={(e) => setChannelInput(e.target.value)}
+              />
+              <input
+                type="submit"
+                value="Submit"
+                className="mt-10 bg-blue-500 w-24 self-center text-white font-semibold focus:pointer-events-auto rounded-lg hover:cursor-pointer"
+              />
+            </form>
+          </div>
+          <div className="bg-gray-200 w-1/2 pl-10 pr-10 overflow-y-scroll">
+            <p className="mt-10">List of chatrooms:</p>
+            <Room room="abc"/>
+            <Room room="abc"/>
+            <Room room="abc"/>
+            <Room room="abc"/>
+            <Room room="abc"/>
+            <Room room="abc"/>
+          </div>
         </div>
-
       ) : (
         loginSubmitted && (
           <div className="panel">
@@ -119,9 +135,13 @@ export default function Chat() {
               </div>
             </div>
 
-            <form onSubmit={sendMessage}>
-              <input value={text} onChange={(e) => setText(e.target.value)} />
-              <button>+</button>
+            <form className="chat-form" onSubmit={sendMessage}>
+              <input
+                className="chat-input"
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+              />
+              <button className="chat-button">+</button>
             </form>
           </div>
         )

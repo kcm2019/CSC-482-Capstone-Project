@@ -3,6 +3,17 @@ import { WhiteWebSdk, RoomWhiteboard } from "white-react-sdk";
 import Sidebar from "../components/Sidebar";
 import "./Styling/Whiteboard.css";
 import Room from "../components/Room";
+import {
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  query,
+  setDoc,
+} from "firebase/firestore";
+import { db } from "../firebase";
+
+const querySnaphot = await getDocs(collection(db, "Whiteboard"));
 
 const Whiteboard = () => {
   const sdkToken =
@@ -13,6 +24,15 @@ const Whiteboard = () => {
   const [roomInput, setRoomInput] = useState(null);
   const [userID, setUserID] = useState(null);
   const [token, setToken] = useState(null);
+  const rooms = [];
+  const tokens = [];
+
+  const getAllRooms = () => {
+    querySnaphot.forEach((doc) => {
+      rooms.push(doc.data());
+    });
+    console.log(rooms);
+  };
 
   const create = async (e) => {
     e.preventDefault();
@@ -50,6 +70,8 @@ const Whiteboard = () => {
       };
       const response = await fetch(url, requestInit);
       const roomToken = await response.json();
+      setDoc(doc(db,"Whiteboard", roomUUID), {ID: roomUUID, Token: roomToken});
+
       return joinRoom(roomUUID, roomToken);
     };
 
@@ -90,9 +112,11 @@ const Whiteboard = () => {
 
     setRoom(room);
     setHasRoom(true);
-    setRoomID(roomId);
-    setToken(rt);
+    setRoomID(roomID);
+    setToken(token);
   };
+
+  getAllRooms();
 
   return (
     <main className="home">
@@ -156,12 +180,9 @@ const Whiteboard = () => {
             </div>
             <div className="bg-gray-200 w-1/2 pl-10 pr-10 overflow-y-scroll">
               <p className="mt-10">List of chatrooms:</p>
-              <Room room="abc" token="123"/>
-              <Room room="abc" />
-              <Room room="abc" />
-              <Room room="abc" />
-              <Room room="abc" />
-              <Room room="abc" />
+              {rooms.map((room) => (
+                <Room room={room.ID} token={room.Token}/>
+              ))}
             </div>
           </div>
         )}

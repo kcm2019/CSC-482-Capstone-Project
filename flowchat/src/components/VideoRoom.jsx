@@ -4,7 +4,7 @@ import VideoPlayer from "./VideoPlayer";
 
 const APP_ID = "0dc239d53b1a474aa923bd796c3948c6";
 const TOKEN =
-  "007eJxTYPhWUTNDPuzPzr4JV1WUtqYqLCvZs1/w6gfXs/UqSmmtc+cpMBikJBsZW6aYGicZJpqYmyQmWhoZJ6WYW5olG1uaWCSbMUgypDQEMjI4tk5nZGSAQBCfmSExKZmBAQBJBR4I";
+"007eJxTYLhcMHXO2rVsM1TSCz3eiD6+N7/4xPK8RZ4T2o55R/S1bP6vwGCQkmxkbJliapxkmGhibpKYaGlknJRibmmWbGxpYpFslnzaIaUhkJGh4YsFAyMUgvjMDIlJyQwMALw3ILM=";
 const CHANNEL = "abc";
 
 const client = AgoraRTC.createClient({

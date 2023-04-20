@@ -40,11 +40,6 @@ function Video() {
         <div className="bg-gray-200 w-1/2 pl-10 pr-10 overflow-y-scroll">
             <p className="mt-10">List of sessions:</p>
             <Room room="abc"/>
-            <Room room="abc"/>
-            <Room room="abc"/>
-            <Room room="abc"/>
-            <Room room="abc"/>
-            <Room room="abc"/>
           </div>
         </div>
       )}
